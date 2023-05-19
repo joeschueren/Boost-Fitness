@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h1 class="display-4">Home</h1>
+    <p>Fitness Tracker will create a plan for the week allow you to see the path to reaching your goals. Keep track of your progress
+        day to day, and your plan will adjust to meet your needs for the rest of the week.
+    </p>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-6 col-sm-12">
+                    <h4>Continue your health journey here</h4>
+                    <a>Log In</a>
+                </div>
+                <div class="col-12 col-md-6 col-sm-12">
+                    <h4>Begin your fitness journey now</h4>
+                    <a>Register Now</a>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="container-fluid">
+        <h2>Get a personalized fitness plan for the week</h2>
+        <p>We tailor a plan to you to allow you to reach your goals in the simplest way possible.</p>
+        <a href="/generate">Make a Plan</a>
+    </div>
+</div>
