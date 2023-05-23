@@ -4,10 +4,34 @@
 @{
 }
 
-<p>@ViewBag.Age</p>
-<p>@ViewBag.Weight</p>
-<p>@ViewBag.Feet</p>
-<p>@ViewBag.Inches</p>
-<p>@ViewBag.Activity</p>
-<p>@ViewBag.Gender</p>
-<p>@ViewBag.Goal</p>
+@{
+    dynamic[] dictArray = { ViewBag.day1, ViewBag.day2, ViewBag.day3, ViewBag.day4, ViewBag.day5, ViewBag.day6, ViewBag.day7 };
+}
+
+<div class="fluid-container">
+    <div class="row">
+@for(int i = 0; i < 7; i++)
+{
+    var dictionary = dictArray[i];
+    int caloriesAllowed = (int) dictionary["calories"];
+    bool isExercise = (bool) dictionary["exercise"];
+    int burned = (int) dictionary["burned"];
+    int expectedMinutes = 0;
+    if (isExercise)
+    {
+        expectedMinutes = 30;
+    }
+    <div class="col-md-2 week-box">
+        <h6>Day @(i+1)</h6>
+                <p>
+                    Calories In: <span class="week-calories">@caloriesAllowed <i class="fa-solid fa-utensils"></i></span><br />
+                    Exercise: <span class="week-minutes">@expectedMinutes min <i class="fa-solid fa-person-walking"></i></span><br />
+                    Calories Burned: <span class="week-burned">@burned <i class="fa-sharp fa-solid fa-fire-flame-curved"></i>
+
+            </span>
+                </p>
+        
+    </div>
+}
+    </div>
+</div>

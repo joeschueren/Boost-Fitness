@@ -83,12 +83,74 @@ namespace Fitness_Tracker.Controllers
 
             bool[] exercisePlan = generateSchedule(activity);
 
-            int caloriesPerDay = (int) (tcb * 7) - (1750 * goal);
+            int caloriesPerDay = (int) ((tcb * 7) - (1750 * goal)) / 7;
+
+            int caloriesExpected = (int)tcb - caloriesPerDay;
 
             Dictionary<object, object> day1 = new Dictionary<object, object>();
 
-            day1.Add("calories", caloriesPerDay);
-            
+            day1["calories"] = caloriesPerDay;
+            day1["exercise"] = exercisePlan[0];
+            day1["burned"] = caloriesExpected;
+
+            ViewBag.day1 = day1;
+
+            Dictionary<object, object> day2 = new Dictionary<object, object>();
+
+            day2["calories"] = caloriesPerDay;
+            day2["exercise"] = exercisePlan[1];
+            day2["burned"] = caloriesExpected;
+
+            ViewBag.day2 = day2;
+
+            Dictionary<object, object> day3 = new Dictionary<object, object>();
+
+            day3["calories"] = caloriesPerDay;
+            day3["exercise"] = exercisePlan[2];
+            day3["burned"] = caloriesExpected;
+
+            ViewBag.day3 = day3;
+
+            Dictionary<object, object> day4 = new Dictionary<object, object>();
+
+            day4["calories"] = caloriesPerDay;
+            day4["exercise"] = exercisePlan[3];
+            day4["burned"] = caloriesExpected;
+
+            ViewBag.day4 = day4;
+
+            Dictionary<object, object> day5 = new Dictionary<object, object>();
+
+            day5["calories"] = caloriesPerDay;
+            day5["exercise"] = exercisePlan[4];
+            day5["burned"] = caloriesExpected;
+
+            ViewBag.day5 = day5;
+
+            Dictionary<object, object> day6 = new Dictionary<object, object>();
+
+            day6["calories"] = caloriesPerDay;
+            day6["exercise"] = exercisePlan[5];
+            day6["burned"] = caloriesExpected;
+
+            ViewBag.day6 = day6;
+
+            Dictionary<object, object> day7 = new Dictionary<object, object>();
+
+            day7["calories"] = caloriesPerDay;
+            day7["exercise"] = exercisePlan[6];
+            day7["burned"] = caloriesExpected;
+
+            ViewBag.day7 = day7;
+
+
+
+            ViewBag.day2 = day2;
+
+            ViewBag.day2 = day2;
+
+            ViewBag.day2 = day2;
+
             return View("Results");
         }
     }
