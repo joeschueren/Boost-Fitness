@@ -10,6 +10,9 @@
 *.userosscache
 *.sln.docstates
 
+*.json
+*.db
+
 Fitness-Tracker/appsettings.json
 
 Fitness-Tracker/appsettings.Development.json

@@ -1,8 +1,13 @@
-
+.today-box {
+    font-size: 18px;
+    margin: 20px;
+    border: 2px solid;
+    border-color: #03fc7f;
+    padding: 25px;
+}
 
 .week-box {
     border: 1px solid #34eb3d;
-    border-radius: 5px;
     margin: 10px 10px;
     padding: 10px;
     font-size: 14px;

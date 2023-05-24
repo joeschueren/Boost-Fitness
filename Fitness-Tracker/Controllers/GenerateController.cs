@@ -87,11 +87,29 @@ namespace Fitness_Tracker.Controllers
 
             int caloriesExpected = (int)tcb - caloriesPerDay;
 
+            string[] daysArray = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+            string currentWeekday = DateTime.Now.DayOfWeek.ToString();
+            int index = Array.IndexOf(daysArray, currentWeekday);
+            string[] days = new string[daysArray.Length];
+            for (int i = 0; i< 7; i++)
+            {
+                days[i] = daysArray[index];
+                if(index == 6)
+                {
+                    index = 0;
+                }
+                else
+                {
+                    index++;
+                }
+            }
+
             Dictionary<object, object> day1 = new Dictionary<object, object>();
 
             day1["calories"] = caloriesPerDay;
             day1["exercise"] = exercisePlan[0];
             day1["burned"] = caloriesExpected;
+            day1["day"] = days[0];
 
             ViewBag.day1 = day1;
 
@@ -100,6 +118,7 @@ namespace Fitness_Tracker.Controllers
             day2["calories"] = caloriesPerDay;
             day2["exercise"] = exercisePlan[1];
             day2["burned"] = caloriesExpected;
+            day2["day"] = days[1];
 
             ViewBag.day2 = day2;
 
@@ -108,6 +127,7 @@ namespace Fitness_Tracker.Controllers
             day3["calories"] = caloriesPerDay;
             day3["exercise"] = exercisePlan[2];
             day3["burned"] = caloriesExpected;
+            day3["day"] = days[2];
 
             ViewBag.day3 = day3;
 
@@ -116,6 +136,7 @@ namespace Fitness_Tracker.Controllers
             day4["calories"] = caloriesPerDay;
             day4["exercise"] = exercisePlan[3];
             day4["burned"] = caloriesExpected;
+            day4["day"] = days[3];
 
             ViewBag.day4 = day4;
 
@@ -124,6 +145,7 @@ namespace Fitness_Tracker.Controllers
             day5["calories"] = caloriesPerDay;
             day5["exercise"] = exercisePlan[4];
             day5["burned"] = caloriesExpected;
+            day5["day"] = days[4];
 
             ViewBag.day5 = day5;
 
@@ -132,6 +154,7 @@ namespace Fitness_Tracker.Controllers
             day6["calories"] = caloriesPerDay;
             day6["exercise"] = exercisePlan[5];
             day6["burned"] = caloriesExpected;
+            day6["day"] = days[5];
 
             ViewBag.day6 = day6;
 
@@ -140,6 +163,7 @@ namespace Fitness_Tracker.Controllers
             day7["calories"] = caloriesPerDay;
             day7["exercise"] = exercisePlan[6];
             day7["burned"] = caloriesExpected;
+            day7["day"] = days[6];
 
             ViewBag.day7 = day7;
 
