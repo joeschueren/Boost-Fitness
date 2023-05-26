@@ -1,13 +1,108 @@
+.body{
+    font-family: "Barlow";
+}
+
+.nav-div {
+    background-color: #45b04d;
+    margin: 0px;
+    padding: 10px 10px;
+}
+
+.navbar-brand{
+    font-size: 20px;
+    font-family: "Ubuntu";
+    font-weight: 700;
+
+}
+
+.navbar{
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Home Page Styling */
+
+.heading {
+    margin: 0px;
+    width: 100%;
+    background: rgb(64,106,194);
+    background: linear-gradient(0deg, rgba(64,106,194,0.6) 0%, rgba(25,194,50,0.6) 100%);
+}
+
+.heading-text{
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+.heading-main{
+    margin: auto;
+    width: 65vw;
+    font-size: 4.5vw;
+    text-align: center;
+    color: white;
+}
+
+.heading-sub {
+    margin: 5vh auto;
+    width: 55vw;
+    text-align: center;
+    color: white;
+}
+
+.heading-button-container {
+    margin: 2vw 0px;
+    text-align: center;
+}
+
+.heading-button {
+    font-size: 1.2vw;
+    border-radius: 15px;
+    background-color: #030ffc;
+    text-decoration: none;
+    color: white;
+    border: 0px;
+    padding: 9px 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+@media (max-width: 800px){
+    .heading-sub{
+        display: none;
+    }
+
+    .heading-main{
+        width: 85vw;
+        margin-bottom: 5vh;
+    }
+
+    .heading-button{
+        font-size: 14px;
+    }
+}
+
+
+.heading-button:hover{
+    opacity: 50%;
+    color: white;
+
+}
+
+/* results page styling */
+
 .today-box {
     font-size: 18px;
     margin: 20px;
-    border: 2px solid;
+    border: 1px solid;
     border-color: #03fc7f;
     padding: 25px;
+    border-radius: 10px;
+
 }
 
 .week-box {
     border: 1px solid #34eb3d;
+    border-radius: 10px;
     margin: 10px 10px;
     padding: 10px;
     font-size: 14px;
@@ -21,9 +116,15 @@
 }
 
 .week-minutes {
-    color: #a7a8a8;
+    color: #ebe626;
 }
 
 .week-burned {
     color: #f73492;
+}
+
+/* Generate Page Styling */
+
+.generate-form {
+    padding: 40px;
 }

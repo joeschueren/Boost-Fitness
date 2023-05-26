@@ -3,13 +3,31 @@
 }
 
 <div>
-    <h1 class="display-4">Home</h1>
-    <p>Fitness Tracker will create a plan for the week allow you to see the path to reaching your goals. Keep track of your progress
-        day to day, and your plan will adjust to meet your needs for the rest of the week.
-    </p>
     @if (!User.Identity.IsAuthenticated)
     {
         <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 heading">
+                    <div class="heading-text">
+                        <h1 class="heading-main">Let Us Help You Become a Better Version of Yourself</h1>
+                        <p class="heading-sub">
+                            Fitness Tracker will create a plan for the week allowing you to see the path to reaching your goals. Keep track of your progress
+                            day to day, and your plan will adjust to meet your needs.
+                        </p>
+                        <div class="heading-button-container">
+                            <a class="heading-button">Start Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div>
             <div class="row">
                 <div class="col-12 col-md-6 col-sm-12">
                     <h4>Continue your health journey here</h4>

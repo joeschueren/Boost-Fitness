@@ -3,18 +3,20 @@
 *@
 @{
 }
-<div class="container-fluid w-md-50">
-    <form action="generate/results" method="post">
-        <h2 class="mb-4 text-center">Generate a Plan Tailored to You</h2>
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-md-6 offset-md-3">
+    <form class="generate-form" action="generate/results" method="post">
+        <h2 class="mb-4">Generate a Plan Tailored to You</h2>
         <label class="form-label" for="age">Age</label>
-        <input class="form-control w-50 mb-3" name="age" id="age" placeholder="Age"/>
-        <div class="form-check form-check-inline mb-3">
-            <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+        <input class="form-control w-50 mb-3" name="age" id="age" placeholder="Age" required/>
+        <div class="form-check form-check-inline mb-3" required>
+            <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
             <label class="form-check-label" for="male">
                 Male
             </label>
         </div>
-        <div class="form-check form-check-inline mb-3">
+        <div class="form-check form-check-inline mb-3" required>
             <input class="form-check-input" type="radio" name="gender" id="female" value="female">
             <label class="form-check-label" for="female">
                 Female
@@ -24,23 +26,23 @@
             <label class="form-label" for="feet">Height</label>
             <div class="row mb-3">
                 <div class="col input-group w-50">
-                    <input class="form-control" name="feet" placeholder="Feet" id="feet"/>
+                    <input class="form-control" name="feet" placeholder="Feet" id="feet" required/>
                     <span class="input-group-text">Feet</span>
                 </div>
                 <div class="col input-group w-50">
-                    <input class="form-control" name="inches" id="inches" placeholder="Inches" />
+                    <input class="form-control" name="inches" id="inches" placeholder="Inches" required/>
                     <span class="input-group-text">Inches</span>
                 </div>
             </div>
         </div>
         <label class="form-label" for="weight">Weight</label>
         <div class="input-group mb-3 w-50">
-        <input class="form-control" name="weight" id="weight" placeholder="Weight"/>
+        <input class="form-control" name="weight" id="weight" placeholder="Weight" required/>
             <span class="input-group-text">lbs</span>
         </div>
         <label class="form-label" for="goal">Weight Loss Goal</label>
         <select class="form-select mb-3" id="goal" name="goal" aria-label="Select Goal">
-            <option selected>Select Weight Loss Goal for the Week</option>
+            <option value="2" selected>Select Weight Loss Goal</option>
             <option value="1">0.5 lbs</option>
             <option value="2">1 lb</option>
             <option value="3">1.5 lbs</option>
@@ -48,7 +50,7 @@
         </select>
         <label class="form-label" for="activity">Activity Level</label>
         <select class="form-select mb-3" id="activity" name="activity" aria-label="Select Goal">
-            <option selected>Select Level of Activity For the Week</option>
+            <option value="0" selected>Select Level of Activity</option>
             <option value="0">No Exercise</option>
             <option value="1">Low (1-3 days Active)</option>
             <option value="2">Moderate (4-5 days Active)</option>
@@ -59,4 +61,6 @@
         </p>
         <button type="submit" class="btn btn-primary">Generate</button>
     </form>
+        </div>
+    </div>
 </div>
