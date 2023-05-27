@@ -167,13 +167,15 @@ namespace Fitness_Tracker.Controllers
 
             ViewBag.day7 = day7;
 
+            int hoursLeft;
 
+            hoursLeft = 23 - DateTime.Now.Hour;
 
-            ViewBag.day2 = day2;
+            ViewBag.hoursLeft = hoursLeft;
 
-            ViewBag.day2 = day2;
+            int ozWater = (int)(weight * .5);
 
-            ViewBag.day2 = day2;
+            ViewBag.ozWater = ozWater;
 
             return View("Results");
         }

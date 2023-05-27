@@ -11,7 +11,7 @@
 <div class="fluid-container">
     <div class="row">
         <div class="col-md-4 today-box">
-            <h4>@dictArray[0]["day"]</h4>
+            <h4>Today</h4>
             <p>
                 Calories In: <span class="week-calories">@dictArray[0]["calories"] <i class="fa-solid fa-utensils"></i></span><br />
                 Exercise: <span class="week-minutes">@if (dictArray[0]["exercise"])
@@ -20,9 +20,18 @@
                     } <i class="fa-solid fa-bolt-lightning"></i></span><br />
                 Calories Burned: <span class="week-burned">@dictArray[0]["burned"] <i class="fa-sharp fa-solid fa-fire-flame-curved"></i></span>
             </p>
+            <div class="goals">
+                <h6>Goals:</h6>
+                <ul>
+                    <li>Drink <span style="color: #0e70c7">@ViewBag.ozWater oz</span> of <span style="color: #0e70c7;">water <i class="fa-solid fa-bottle-water"></i></span></li>
+                    <li>Take <span style="color: #fc7b03">7,500</span> steps <span style="color: #fc7b03"><i class="fa-solid fa-person-walking"></i></span></li>
+                    <li>Get atleast <span style=" color: #5f6ac7">7 hours</span> of sleep <span style="color: #5f6ac7"><i class="fa-solid fa-moon"></i></span></li>
+                </ul>
+                <p>@ViewBag.hoursLeft Hours Left Today</p>
+            </div>
         </div>
     </div>
-    <div class="row">
+        <div class="row">
 @for(int i = 1; i < 7; i++)
 {
     var dictionary = dictArray[i];
@@ -36,15 +45,17 @@
     {
         expectedMinutes = 30;
     }
-    <div class="col-md-2 week-box">
-        <h6>@day</h6>
-                <p>
-                    Calories In: <span class="week-calories">@caloriesAllowed <i class="fa-solid fa-utensils"></i></span><br />
-                    Exercise: <span class="week-minutes">@expectedMinutes min <i class="fa-solid fa-bolt-lightning"></i></span><br />
-                    Calories Burned: <span class="week-burned">@burned <i class="fa-sharp fa-solid fa-fire-flame-curved"></i></span>
-                </p>
+    <div class="col-md-2">
+        <div class="week-box">
+            <h6>@day</h6>
+            <p>
+                Calories In: <span class="week-calories">@caloriesAllowed <i class="fa-solid fa-utensils"></i></span><br />
+                Exercise: <span class="week-minutes">@expectedMinutes min <i class="fa-solid fa-bolt-lightning"></i></span><br />
+                Calories Burned: <span class="week-burned">@burned <i class="fa-sharp fa-solid fa-fire-flame-curved"></i></span>
+            </p>
+        </div>
         
     </div>
         }
-    </div>
+        </div>
 </div>

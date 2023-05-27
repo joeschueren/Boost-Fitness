@@ -93,24 +93,28 @@
 .today-box {
     font-size: 18px;
     margin: 20px;
-    border: 1px solid;
+    border: 2px solid;
     border-color: #03fc7f;
     padding: 25px;
     border-radius: 10px;
+}
 
+.goals{
+    font-size: 14px;
+}
+
+.row{
+    margin: 0px;
 }
 
 .week-box {
-    border: 1px solid #34eb3d;
+    width: 95%;
+    border: 2px solid #34eb3d;
     border-radius: 10px;
-    margin: 10px 10px;
     padding: 10px;
     font-size: 14px;
 }
 
-.week-calories, .week-minutes, .week-burned{
-    font-size: 14px;
-}
 .week-calories {
     color: #10ad54;
 }
@@ -121,6 +125,13 @@
 
 .week-burned {
     color: #f73492;
+}
+
+@media (max-width: 767px){
+    week-box{
+        width: 70%;
+        margin-bottom: 2vh;
+    }
 }
 
 /* Generate Page Styling */
