@@ -14,6 +14,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<AlternativeDbContext>(options => options.UseSqlite(
+    builder.Configuration.GetConnectionString("daysDb")));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

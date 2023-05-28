@@ -2,6 +2,15 @@
     font-family: "Barlow";
 }
 
+.row {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container-fluid{
+    padding: 0px;
+}
+
 .nav-div {
     background-color: #45b04d;
     margin: 0px;
@@ -94,25 +103,32 @@
     font-size: 18px;
     margin: 20px;
     border: 2px solid;
-    border-color: #03fc7f;
+    border-color: #02d158;
     padding: 25px;
     border-radius: 10px;
+}
+
+.results-heading{
+    padding-top: 25px;
+    padding-left: 20px;
 }
 
 .goals{
     font-size: 14px;
 }
 
-.row{
-    margin: 0px;
-}
-
 .week-box {
     width: 95%;
-    border: 2px solid #34eb3d;
+    border: 2px solid #02d158;
     border-radius: 10px;
+    margin-left: 8px;
     padding: 10px;
+    padding-bottom: 0px;
     font-size: 14px;
+}
+
+.week-details {
+    color: #5e5e5e;
 }
 
 .week-calories {
@@ -120,16 +136,36 @@
 }
 
 .week-minutes {
-    color: #ebe626;
+    color: #fcca03;
 }
 
 .week-burned {
     color: #f73492;
 }
 
+.loss {
+    color: #d10202;
+}
+
+.weekday {
+    color: black;
+}
+
 @media (max-width: 767px){
-    week-box{
+    
+    .results-heading{
+        text-align: center;
+    }
+
+    .week-box{
+        width: 65%;
+        margin: auto;
+        margin-bottom: 2vh;
+    }
+
+    .today-box{
         width: 70%;
+        margin: auto;
         margin-bottom: 2vh;
     }
 }
@@ -138,4 +174,9 @@
 
 .generate-form {
     padding: 40px;
+}
+
+.measurements{
+    padding: 0px;
+    margin-right: 2vw;
 }
