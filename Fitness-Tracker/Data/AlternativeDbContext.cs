@@ -10,5 +10,6 @@ namespace Fitness_Tracker.Data
         }
 
         public DbSet<Day> Days { get; set; }
+        public DbSet<UserInfo> Users { get; set; }
     }
 }

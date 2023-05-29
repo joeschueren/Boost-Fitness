@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Fitness_Tracker.Migrations
 {
     [DbContext(typeof(AlternativeDbContext))]
-    [Migration("20230528062716_AddDaysTableToDb")]
-    partial class AddDaysTableToDb
+    [Migration("20230529052715_AddUserAndDaysTable")]
+    partial class AddUserAndDaysTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,6 +44,37 @@ namespace Fitness_Tracker.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Days");
+                });
+
+            modelBuilder.Entity("Fitness_Tracker.Models.UserInfo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Age")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Height")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("TableReady")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("User")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Weight")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }
