@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@if(ViewBag.user == null)
+{
+    <form>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <form class="generate-form" action="profile/input" method="post">
+                        <h2 class="mb-4">Generate a Plan Tailored to You</h2>
+                        <label class="form-label" for="age">Age</label>
+                        <input class="form-control w-50 mb-3" name="age" id="age" placeholder="Age" required />
+                        <div class="form-check form-check-inline mb-3" required>
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
+                            <label class="form-check-label" for="male">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline mb-3" required>
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                            <label class="form-check-label" for="female">
+                                Female
+                            </label>
+                        </div>
+                        <div>
+                            <label class="form-label" for="feet">Height</label>
+                            <div class="row mb-3">
+                                <div class="col measurements input-group w-50">
+                                    <input class="form-control" name="feet" placeholder="Feet" id="feet" required />
+                                    <span class="input-group-text">Feet</span>
+                                </div>
+                                <div class="col measurements input-group w-50">
+                                    <input class="form-control" name="inches" id="inches" placeholder="Inches" required />
+                                    <span class="input-group-text">Inches</span>
+                                </div>
+                            </div>
+                        </div>
+                        <label class="form-label" for="weight">Weight</label>
+                        <div class="input-group mb-3 w-50">
+                            <input class="form-control" name="weight" id="weight" placeholder="Weight" required />
+                            <span class="input-group-text">lbs</span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <input style="display: none;"value=@User.Identity.Name name="User">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </form>
+}
+
+@if(ViewBag.user != null)
+{
+    <h1>Data found in table</h1>
+    <p>@ViewBag.user</p>
+}
