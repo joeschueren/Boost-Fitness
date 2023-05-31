@@ -1,0 +1,21 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="fluid-container">
+    <div class="row">
+        <div class="col-lg-6 offset-3">
+            <h1>Record your day</h1>
+            <form action="insert" method="post">
+                <label class="form-label" for="eaten">Calories Eaten:</label>
+                <input class="form-control w-50 mb-3" name="eaten" id="eaten" placeholder="Calories" required />
+                <label class="form-label" for="min">Minutes Exercised:</label>
+                <input class="form-control w-50 mb-3" name="min" id="min" placeholder="Minutes" required />
+                <button class="btn btn-primary"type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+

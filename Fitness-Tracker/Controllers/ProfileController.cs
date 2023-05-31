@@ -2,6 +2,9 @@
 using Fitness_Tracker.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using static Humanizer.In;
+using System.Reflection;
 
 namespace Fitness_Tracker.Controllers
 {
@@ -33,6 +36,7 @@ namespace Fitness_Tracker.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Input(string User, int weight, int feet, int inches,  int age, string gender)
         {
             int height = (feet * 12) + inches;
@@ -50,9 +54,47 @@ namespace Fitness_Tracker.Controllers
 
             _context.Users.Add(newUser);
 
+            _context.SaveChanges();
+
             _context.Dispose();
 
             return RedirectToAction("Index", "Profile");
         }
+
+        [Authorize]
+        public IActionResult Update()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult Updateinfo(int weight, int feet, int inches, int age, string gender) 
+        {
+            string username = User.Identity.Name;
+
+            int height = (feet * 12) + inches;
+
+            var user = _context.Users.FirstOrDefault(x => x.User == username);
+
+            if(user != null)
+            {
+                user.Weight = weight;
+                user.Height = height;
+                user.Age = age;
+                user.Gender = gender;
+                user.TableReady = true;
+            }
+
+            
+
+            _context.SaveChanges();
+
+            _context.Dispose();
+
+            return RedirectToAction("Index", "Profile");
+        }
+
+
     }
 }

@@ -6,7 +6,7 @@
 
 @if(ViewBag.user == null)
 {
-    <form>
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
@@ -45,16 +45,20 @@
                             <span class="input-group-text">lbs</span>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <input style="display: none;"value=@User.Identity.Name name="User">
+                        <input style="display: none;" value=@User.Identity.Name name="User">
                     </form>
                 </div>
             </div>
         </div>
-    </form>
 }
 
 @if(ViewBag.user != null)
 {
     <h1>Data found in table</h1>
-    <p>@ViewBag.user</p>
+    <p>@ViewBag.user.User</p>
+    <p>@ViewBag.user.Height</p>
+    <p>@ViewBag.user.Weight</p>
+    <p>@ViewBag.user.Age</p>
+    <p>@ViewBag.user.Gender</p>
+
 }
