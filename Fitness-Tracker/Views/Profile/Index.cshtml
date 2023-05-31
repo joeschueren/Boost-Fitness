@@ -61,4 +61,18 @@
     <p>@ViewBag.user.Age</p>
     <p>@ViewBag.user.Gender</p>
 
+    var list = ViewBag.days as List<Day>;
+
+    @for (int i = 0; i < list.Count; i++)
+    {
+        var day = list[i];
+
+        <p>@day.Date</p>
+        <p>@day.User</p>
+        <p>@day.MinExercise</p>
+        <p>@day.CaloriesIn</p>
+    }
+
+
+
 }

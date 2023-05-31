@@ -10,9 +10,17 @@
             <h1>Record your day</h1>
             <form action="insert" method="post">
                 <label class="form-label" for="eaten">Calories Eaten:</label>
-                <input class="form-control w-50 mb-3" name="eaten" id="eaten" placeholder="Calories" required />
+                <input class="form-control w-50 mb-3" name="calories" id="calories" placeholder="Calories" required />
                 <label class="form-label" for="min">Minutes Exercised:</label>
-                <input class="form-control w-50 mb-3" name="min" id="min" placeholder="Minutes" required />
+                <input class="form-control w-50 mb-3" name="minutes" id="minutes" placeholder="Minutes" required />
+                <label class="form-label" for="activity">Date</label>
+                <select class="form-select mb-3" id="activity" name="date" aria-label="Select Goal">
+                    @for(int i =0; i < 7; i++)
+                    {
+                        <option value=@ViewBag.dates[i]>@ViewBag.dates[i] @(i == 0 ? "(Today)" : "")</option>
+                    }
+                </select>
+                <input style="display: none;" value=@User.Identity.Name name="user" id="user"/>
                 <button class="btn btn-primary"type="submit">Submit</button>
             </form>
         </div>

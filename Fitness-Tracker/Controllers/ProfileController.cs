@@ -84,15 +84,21 @@ namespace Fitness_Tracker.Controllers
                 user.Age = age;
                 user.Gender = gender;
                 user.TableReady = true;
+
+                _context.Users.Add(user);
+
+                _context.SaveChanges();
+
+                _context.Dispose();
+
+                return RedirectToAction("Index", "Profile");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Profile");
             }
 
             
-
-            _context.SaveChanges();
-
-            _context.Dispose();
-
-            return RedirectToAction("Index", "Profile");
         }
 
 
