@@ -1,3 +1,7 @@
+:root {
+    --primary-color: #02d158;
+}
+
 .body{
     font-family: "Barlow";
 }
@@ -119,7 +123,7 @@
 
 .week-box {
     width: 95%;
-    border: 2px solid #02d158;
+    border: 2px solid var(--primary-color);
     border-radius: 10px;
     margin-left: 8px;
     padding: 10px;
@@ -179,4 +183,17 @@
 .measurements{
     padding: 0px;
     margin-right: 2vw;
+}
+
+/* Profile Page Styling */
+
+.profile-box{
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 15px 10px;
+}
+
+.profile-header{
+    padding-bottom: 15px;
 }

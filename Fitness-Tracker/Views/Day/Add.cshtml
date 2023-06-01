@@ -20,6 +20,7 @@
                         <option value=@ViewBag.dates[i]>@ViewBag.dates[i] @(i == 0 ? "(Today)" : "")</option>
                     }
                 </select>
+                <p>*If you select a date you already recorded the date will be updated.</p>
                 <input style="display: none;" value=@User.Identity.Name name="user" id="user"/>
                 <button class="btn btn-primary"type="submit">Submit</button>
             </form>

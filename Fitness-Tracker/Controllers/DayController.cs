@@ -1,6 +1,7 @@
 ﻿using Fitness_Tracker.Data;
 using Fitness_Tracker.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fitness_Tracker.Controllers
@@ -42,20 +43,35 @@ namespace Fitness_Tracker.Controllers
         [HttpPost]
         public IActionResult Insert(string user, int minutes, int calories, string date)
         {
-            Day newDay = new Day
+            bool AlreadyInput = _context.Days.Any(d => d.User == user && d.Date == date);
+            if (AlreadyInput)
             {
-                User = user,
-                CaloriesIn = calories,
-                MinExercise = minutes,
-                Date = date,
-                TableReady = true
-            };
+                var day = _context.Days.FirstOrDefault(d => d.User == user && d.Date == date);
 
-            _context.Days.Add(newDay);
+                day.CaloriesIn = calories;
 
-            _context.SaveChanges();
+                day.MinExercise = minutes;
 
-            _context.Dispose();
+                _context.SaveChanges();
+
+                _context.Dispose();
+            }
+            else {
+                Day newDay = new Day
+                {
+                    User = user,
+                    CaloriesIn = calories,
+                    MinExercise = minutes,
+                    Date = date,
+                    TableReady = true
+                };
+
+                _context.Days.Add(newDay);
+
+                _context.SaveChanges();
+
+                _context.Dispose();
+            }
 
             return RedirectToAction("Index", "Profile");
         }

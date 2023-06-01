@@ -54,12 +54,19 @@
 
 @if(ViewBag.user != null)
 {
-    <h1>Data found in table</h1>
-    <p>@ViewBag.user.User</p>
-    <p>@ViewBag.user.Height</p>
-    <p>@ViewBag.user.Weight</p>
-    <p>@ViewBag.user.Age</p>
-    <p>@ViewBag.user.Gender</p>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-box">
+                <h4 class="profile-header">Profile</h4>
+                <p><b>@ViewBag.user.User</b></p>
+                <p>Age: @ViewBag.user.Age</p>
+                <p>Height: @(ViewBag.user.Height / 12)' @(ViewBag.user.Height % 12)"</p>
+                <p>Weight: @ViewBag.user.Weight</p>
+            </div>
+        </div>
+
+    </div>
+    
 
     var list = ViewBag.days as List<Day>;
 
