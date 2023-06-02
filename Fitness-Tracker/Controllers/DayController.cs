@@ -23,11 +23,8 @@ namespace Fitness_Tracker.Controllers
 
             for (int i = 0; i< dates.Length; i++)
             {
-                int day = currentDate.Day;
-                int month = currentDate.Month;
-                int year = currentDate.Year;
 
-                string date = $"{month}/{day}/{year}";
+                string date = currentDate.ToString("MM/dd/yyyy");
 
                 dates[i] = date;
 

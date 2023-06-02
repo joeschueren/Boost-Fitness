@@ -2,6 +2,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    string[] weekDay = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
 }
 
 @if(ViewBag.user == null)
@@ -66,19 +67,37 @@
         </div>
 
     </div>
-    
+    var list = ViewBag.daysData as Dictionary<string, object>[]; ;
 
-    var list = ViewBag.days as List<Day>;
+    <div class="fluid-container">
+        <div class="row">
 
-    @for (int i = 0; i < list.Count; i++)
+    @for (int i = 0; i < 7; i++)
     {
         var day = list[i];
+        var calories = day["calories"];
+        var minutes = day["minutes"];
+        var expected = day["expected"];
+        var burned = day["burned"];
+        var iVal = day["i"];
+        var where = day["where"];
+        var date = day["date"];
 
-        <p>@day.Date</p>
-        <p>@day.User</p>
-        <p>@day.MinExercise</p>
-        <p>@day.CaloriesIn</p>
+        <div class="col-md-2">
+            <div class="week-box">
+                <p><b>@weekDay[i]</b></p>
+                <p>Calories: @calories</p>
+                <p>Minutes: @minutes</p>
+                <p>Expected: @expected</p>
+                <p>Burned: @burned</p>
+                <p>I: @iVal</p>
+                <p>Where: @where</p>
+                <p>Date: @date</p>
+            </div>
+        </div>
     }
+        </div>
+    </div>
 
 
 
