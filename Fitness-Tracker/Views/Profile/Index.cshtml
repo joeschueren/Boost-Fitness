@@ -5,97 +5,110 @@
     string[] weekDay = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
 }
 
-@if(ViewBag.user == null)
+@if (ViewBag.user == null)
 {
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <form class="generate-form" action="profile/input" method="post">
-                        <h2 class="mb-4">Generate a Plan Tailored to You</h2>
-                        <label class="form-label" for="age">Age</label>
-                        <input class="form-control w-50 mb-3" name="age" id="age" placeholder="Age" required />
-                        <div class="form-check form-check-inline mb-3" required>
-                            <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
-                            <label class="form-check-label" for="male">
-                                Male
-                            </label>
-                        </div>
-                        <div class="form-check form-check-inline mb-3" required>
-                            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-                            <label class="form-check-label" for="female">
-                                Female
-                            </label>
-                        </div>
-                        <div>
-                            <label class="form-label" for="feet">Height</label>
-                            <div class="row mb-3">
-                                <div class="col measurements input-group w-50">
-                                    <input class="form-control" name="feet" placeholder="Feet" id="feet" required />
-                                    <span class="input-group-text">Feet</span>
-                                </div>
-                                <div class="col measurements input-group w-50">
-                                    <input class="form-control" name="inches" id="inches" placeholder="Inches" required />
-                                    <span class="input-group-text">Inches</span>
-                                </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form class="generate-form" action="profile/input" method="post">
+                    <h2 class="mb-4">Profile Details<h2>
+                    <label class="form-label" for="age">Age</label>
+                    <input class="form-control w-50 mb-3" name="age" id="age" placeholder="Age" required />
+                    <div class="form-check form-check-inline mb-3" required>
+                        <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
+                        <label class="form-check-label" for="male">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline mb-3" required>
+                        <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                        <label class="form-check-label" for="female">
+                            Female
+                        </label>
+                    </div>
+                    <div>
+                        <label class="form-label" for="feet">Height</label>
+                        <div class="row mb-3">
+                            <div class="col measurements input-group w-50">
+                                <input class="form-control" name="feet" placeholder="Feet" id="feet" required />
+                                <span class="input-group-text">Feet</span>
+                            </div>
+                            <div class="col measurements input-group w-50">
+                                <input class="form-control" name="inches" id="inches" placeholder="Inches" required />
+                                <span class="input-group-text">Inches</span>
                             </div>
                         </div>
-                        <label class="form-label" for="weight">Weight</label>
-                        <div class="input-group mb-3 w-50">
-                            <input class="form-control" name="weight" id="weight" placeholder="Weight" required />
-                            <span class="input-group-text">lbs</span>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <input style="display: none;" value=@User.Identity.Name name="User">
-                    </form>
-                </div>
+                    </div>
+                    <label class="form-label" for="weight">Weight</label>
+                    <div class="input-group mb-3 w-50">
+                        <input class="form-control" name="weight" id="weight" placeholder="Weight" required />
+                        <span class="input-group-text">lbs</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <input style="display: none;" value=@User.Identity.Name name="User">
+                </form>
             </div>
         </div>
+    </div>
 }
 
-@if(ViewBag.user != null)
+@if (ViewBag.user != null)
 {
+    var list = ViewBag.daysData as Dictionary<string, object>[];
+
+    var dow = (int)ViewBag.dayOfWeek;
+
     <div class="row">
-        <div class="col-md-4">
-            <div class="profile-box">
-                <h4 class="profile-header">Profile</h4>
-                <p><b>@ViewBag.user.User</b></p>
-                <p>Age: @ViewBag.user.Age</p>
-                <p>Height: @(ViewBag.user.Height / 12)' @(ViewBag.user.Height % 12)"</p>
-                <p>Weight: @ViewBag.user.Weight</p>
+        <div class="col-md-6">
+            <div class="today-box ms-auto">
+                <h4 class="weekday">Today</h4>
+                <div class="week-details">
+                    <p>Max Calories: <span class="week-calories">@list[dow]["calories"] <i class="fa-solid fa-utensils"></i></span></p>
+                    <p>Exercise: <span class="week-minutes">@list[dow]["minutes"] min <i class="fa-solid fa-bolt-lightning"></i></span></p>
+                    <p>Expected: <span>@list[dow]["expected"]</span></p>
+                    <p>Calories Burned: <span class="week-burned">@list[dow]["burned"] <i class="fa-sharp fa-solid fa-fire-flame-curved"></i></span></p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="profile-container">
+                <div class="profile-box">
+                    <h4 class="profile-header">Profile</h4>
+                    <p><b>@ViewBag.user.User</b></p>
+                    <p>Age: @ViewBag.user.Age</p>
+                    <p>Height: @(ViewBag.user.Height / 12)' @(ViewBag.user.Height % 12)"</p>
+                    <p>Weight: @ViewBag.user.Weight</p>
+                </div>
             </div>
         </div>
 
     </div>
-    var list = ViewBag.daysData as Dictionary<string, object>[]; ;
 
     <div class="fluid-container">
         <div class="row">
 
-    @for (int i = 0; i < 7; i++)
-    {
-        var day = list[i];
-        var calories = day["calories"];
-        var minutes = day["minutes"];
-        var expected = day["expected"];
-        var burned = day["burned"];
-        var iVal = day["i"];
-        var where = day["where"];
-        var date = day["date"];
-
-        <div class="col-md-2">
-            <div class="week-box">
-                <p><b>@weekDay[i]</b></p>
-                <p>Calories: @calories</p>
-                <p>Minutes: @minutes</p>
-                <p>Expected: @expected</p>
-                <p>Burned: @burned</p>
-                <p>I: @iVal</p>
-                <p>Where: @where</p>
-                <p>Date: @date</p>
-            </div>
-        </div>
-    }
+            @for (int i = 0; i < 7; i++)
+            {
+                if (i != dow)
+                {
+                    var day = list[i];
+                    var calories = day["calories"];
+                    var minutes = day["minutes"];
+                    var expected = day["expected"];
+                    var burned = day["burned"];
+                    <div class="col-md-2">
+                        <div class="week-box">
+                            <p><b>@weekDay[i]</b></p>
+                            <p>Calories: @calories</p>
+                            <p>Minutes: @minutes</p>
+                            <p>Expected: @expected</p>
+                            <p>Burned: @burned</p>
+                        </div>
+                    </div>
+                }
+            }
         </div>
     </div>
 

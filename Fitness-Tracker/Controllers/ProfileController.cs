@@ -137,13 +137,12 @@ namespace Fitness_Tracker.Controllers
                     dayData["where"] = 3;
                 }
 
-                dayData["i"] = i;
-                dayData["date"] = today.AddDays(i).ToString("MM/dd/yyyy");
-
                 daysData[index] = dayData;
                 index++;
 
             }
+
+            ViewBag.dayOfWeek = today.DayOfWeek;
 
             ViewBag.daysData = daysData;
 

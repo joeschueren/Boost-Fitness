@@ -109,7 +109,7 @@
     border: 2px solid;
     border-color: #02d158;
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .results-heading{
@@ -124,7 +124,7 @@
 .week-box {
     width: 95%;
     border: 2px solid var(--primary-color);
-    border-radius: 10px;
+    border-radius: 5px;
     margin-left: 8px;
     padding: 10px;
     padding-bottom: 0px;
@@ -192,6 +192,10 @@
     border-radius: 5px;
     padding: 20px;
     margin: 15px 10px;
+}
+
+.profile-container{
+    margin-left: 60%;
 }
 
 .profile-header{
