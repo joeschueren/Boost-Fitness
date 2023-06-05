@@ -167,9 +167,7 @@ namespace Fitness_Tracker.Controllers
 
             ViewBag.day7 = day7;
 
-            int hoursLeft;
-
-            hoursLeft = 23 - DateTime.Now.Hour;
+            int hoursLeft = 23 - DateTime.Now.Hour;
 
             ViewBag.hoursLeft = hoursLeft;
 

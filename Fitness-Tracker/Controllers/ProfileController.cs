@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using static Humanizer.In;
 using System.Reflection;
 using System.Diagnostics;
+using Fitness_Tracker.Migrations;
 
 namespace Fitness_Tracker.Controllers
 {
@@ -25,9 +26,13 @@ namespace Fitness_Tracker.Controllers
 
             var user = _context.Users.FirstOrDefault(x => x.User == username);
 
+            var stats = _context.Stats.FirstOrDefault(x => x.User == username);
+
             ViewBag.user = user;
 
-            if(user == null)
+            ViewBag.stats = stats;
+
+            if(user == null || stats == null)
             {
                 return View();
             }
@@ -36,8 +41,21 @@ namespace Fitness_Tracker.Controllers
                
             ViewBag.days = days;
 
+            int hoursLeft = 23 - DateTime.Now.Hour;
+
+            ViewBag.hoursLeft = hoursLeft;
+
             DateTime today = DateTime.Today;
             int daysUntilSunday = (0 - (int)today.DayOfWeek) % 7;
+
+            var sunday = today.AddDays(daysUntilSunday);
+
+            string[] datesList = new string[7];
+
+            for(int i =0; i < 7; i++)
+            {
+                datesList.Append(sunday.AddDays(i).ToString("MM/dd/yyyy"));
+            }
            
 
             double bmr;
@@ -47,20 +65,28 @@ namespace Fitness_Tracker.Controllers
             int age = user.Age;
             int totalMinutes = 0;
             int activity = 0;
+
+            int accumulativeMinutes = 0;
             foreach(var day in days)
             {
-                totalMinutes += day.MinExercise;
+                if(datesList.Any(d => d == day.Date))
+                {
+                    totalMinutes += day.MinExercise;
+                }
+                accumulativeMinutes += day.MinExercise;
             }
 
-            if(totalMinutes < (90 / (int)today.DayOfWeek))
+            stats.TotalMinutes = accumulativeMinutes;
+
+            if(totalMinutes < (90 / ((int)today.DayOfWeek + 1)))
             {
                 activity = 1;
             }
-            else if(totalMinutes < (150 / (int)today.DayOfWeek))
+            else if(totalMinutes < (150 / ((int)today.DayOfWeek + 1)))
             {
                 activity = 2;
             }
-            else if(totalMinutes < (180 / (int)today.DayOfWeek))
+            else if(totalMinutes < (180 / ((int)today.DayOfWeek + 1)))
             {
                 activity = 3;
             }
@@ -93,10 +119,21 @@ namespace Fitness_Tracker.Controllers
             }
 
             int totalBurned = 0;
+            int accumulativeBurned = 0;
             foreach(var day in days)
             {
-                totalBurned += Math.Abs(day.CaloriesIn - (int)tcb);
+                if(datesList.Any(d => d == day.Date))
+                {
+                    totalBurned += Math.Abs(day.CaloriesIn - (int)tcb);
+                }
+                accumulativeBurned = Math.Abs(day.CaloriesIn - (int)tcb);
             }
+
+            stats.TotalBurned = accumulativeBurned;
+
+            _context.SaveChanges();
+
+            
 
             Dictionary<string, object>[] daysData = new Dictionary<string, object>[7];
 
@@ -111,6 +148,8 @@ namespace Fitness_Tracker.Controllers
 
                 int updatedExpected = (7000 - totalBurned) / (7 - (int)today.DayOfWeek);
                 int updatedIntake = (int)tcb - updatedExpected;
+
+
 
                 if (currentDay == null && dayOfWeek <= today.DayOfWeek)
                 {
@@ -146,6 +185,8 @@ namespace Fitness_Tracker.Controllers
 
             ViewBag.daysData = daysData;
 
+            ViewBag.ozWater = user.Weight / 2;
+
             _context.Dispose();
 
             return View();
@@ -153,7 +194,7 @@ namespace Fitness_Tracker.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult Input(string User, int weight, int feet, int inches,  int age, string gender)
+        public IActionResult Input(string User, int weight, int feet, int inches,  int age, string gender, int activity, int goal)
         {
             int height = (feet * 12) + inches;
 
@@ -168,7 +209,21 @@ namespace Fitness_Tracker.Controllers
 
             };
 
+            Stat newStats = new Stat
+            {
+                User = User,
+                TotalBurned = 0,
+                TotalMinutes = 0,
+                ActivityLevel = activity,
+                Goal = goal,
+                TableReady = true
+
+
+            };
+
             _context.Users.Add(newUser);
+
+            _context.Stats.Add(newStats);
 
             _context.SaveChanges();
 
@@ -185,7 +240,7 @@ namespace Fitness_Tracker.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult Updateinfo(int weight, int feet, int inches, int age, string gender) 
+        public IActionResult Updateinfo(int weight, int feet, int inches, int age, string gender, int activity, int goal) 
         {
             string username = User.Identity.Name;
 
@@ -193,7 +248,10 @@ namespace Fitness_Tracker.Controllers
 
             var user = _context.Users.FirstOrDefault(x => x.User == username);
 
-            if(user != null)
+            var stats = _context.Stats.FirstOrDefault(x => x.User == username);
+
+
+            if(user != null && stats != null)
             {
                 user.Weight = weight;
                 user.Height = height;
@@ -201,11 +259,12 @@ namespace Fitness_Tracker.Controllers
                 user.Gender = gender;
                 user.TableReady = true;
 
-                _context.Users.Add(user);
+                stats.ActivityLevel = activity;
+                stats.Goal = goal;
 
                 _context.SaveChanges();
 
-                _context.Dispose();
+                
 
                 return RedirectToAction("Index", "Profile");
             }
