@@ -7,6 +7,7 @@ using static Humanizer.In;
 using System.Reflection;
 using System.Diagnostics;
 using Fitness_Tracker.Migrations;
+using System.Data.SqlTypes;
 
 namespace Fitness_Tracker.Controllers
 {
@@ -86,7 +87,7 @@ namespace Fitness_Tracker.Controllers
             {
                 activity = 2;
             }
-            else if(totalMinutes < (180 / ((int)today.DayOfWeek + 1)))
+            else if(totalMinutes < (210 / ((int)today.DayOfWeek + 1)))
             {
                 activity = 3;
             }
@@ -146,6 +147,20 @@ namespace Fitness_Tracker.Controllers
                 var currentDay = days.FirstOrDefault(d => d.Date == today.AddDays(i).ToString("MM/dd/yyyy"));
                 var dayOfWeek = today.AddDays(i).DayOfWeek;
 
+
+                int updatedMinutes = 0;
+                if(stats.ActivityLevel == 1)
+                {
+                    updatedMinutes = (90 - totalMinutes) / (7 - (int)today.DayOfWeek + 1);
+                }
+                else if(stats.ActivityLevel == 2)
+                {
+                    updatedMinutes = (150 - totalMinutes) / (7 - (int)today.DayOfWeek + 1 );
+                }
+                else if(stats.ActivityLevel == 3)
+                {
+                    updatedMinutes = (210 - totalMinutes) / (7 - (int)today.DayOfWeek + 1);
+                }
                 int updatedExpected = (7000 - totalBurned) / (7 - (int)today.DayOfWeek);
                 int updatedIntake = (int)tcb - updatedExpected;
 
@@ -156,24 +171,24 @@ namespace Fitness_Tracker.Controllers
                     dayData["calories"] = (int)Math.Round(tcb);
                     dayData["minutes"] = 0;
                     dayData["burned"] = 0;
-                    dayData["expected"] = 1000;
-                    dayData["where"] = 1;
+                    dayData["expected"] = 250 * stats.Goal;
+                    dayData["style"] = "past-box";
                 }
                 else if (dayOfWeek <= today.DayOfWeek)
                 {
                     dayData["calories"] = (int)Math.Round((double)currentDay.CaloriesIn);
                     dayData["minutes"] = currentDay.MinExercise;
                     dayData["burned"] = (int)Math.Round(currentDay.CaloriesIn - tcb);
-                    dayData["expected"] = 1000;
-                    dayData["where"] = 2;
+                    dayData["expected"] = 250 * stats.Goal;
+                    dayData["style"] = "past-box";
                 }
                 else
                 {
                     dayData["calories"] = updatedIntake;
-                    dayData["minutes"] = 30;
+                    dayData["minutes"] = updatedMinutes;
                     dayData["burned"] = updatedExpected;
                     dayData["expected"] = updatedExpected;
-                    dayData["where"] = 3;
+                    dayData["style"] = "future-box";
                 }
 
                 daysData[index] = dayData;

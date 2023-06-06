@@ -121,7 +121,7 @@
     font-size: 14px;
 }
 
-.week-box {
+.week-box{
     width: 95%;
     border: 2px solid var(--primary-color);
     border-radius: 5px;
@@ -203,4 +203,24 @@
 
 .profile-header{
     padding-bottom: 15px;
+}
+
+.past-box {
+    width: 95%;
+    border: 2px solid #e6159c;
+    border-radius: 5px;
+    margin-left: 8px;
+    padding: 10px;
+    padding-bottom: 0px;
+    font-size: 14px;
+}
+
+.future-box {
+    width: 95%;
+    border: 2px solid #e6159c;
+    border-radius: 5px;
+    margin-left: 8px;
+    padding: 10px;
+    padding-bottom: 0px;
+    font-size: 14px;
 }
