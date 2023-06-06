@@ -127,7 +127,7 @@ namespace Fitness_Tracker.Controllers
                 {
                     totalBurned += Math.Abs(day.CaloriesIn - (int)tcb);
                 }
-                accumulativeBurned = Math.Abs(day.CaloriesIn - (int)tcb);
+                accumulativeBurned += Math.Abs(day.CaloriesIn - (int)tcb);
             }
 
             stats.TotalBurned = accumulativeBurned;

@@ -18,6 +18,7 @@ namespace Fitness_Tracker.Controllers
         {
 
             string[] dates = new string[7];
+            string[] weekdays = new string[7];
 
             DateTime currentDate = DateTime.Now;
 
@@ -26,12 +27,18 @@ namespace Fitness_Tracker.Controllers
 
                 string date = currentDate.ToString("MM/dd/yyyy");
 
+                string weekday = currentDate.ToString("dddd");
+
+                weekdays[i] = weekday;
+
                 dates[i] = date;
 
                 currentDate = currentDate.AddDays(-1);
             }
 
             ViewBag.dates = dates;
+
+            ViewBag.weekdays = weekdays;
 
             return View();
         }

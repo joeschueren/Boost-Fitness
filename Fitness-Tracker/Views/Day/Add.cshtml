@@ -18,7 +18,7 @@
                 <select class="form-select mb-3" id="activity" name="date" aria-label="Select Goal">
                     @for(int i =0; i < 7; i++)
                     {
-                        <option value=@ViewBag.dates[i]>@ViewBag.dates[i] @(i == 0 ? "(Today)" : "")</option>
+                        <option value=@ViewBag.dates[i]>@ViewBag.dates[i] @(i == 0 ? "(Today)" : ViewBag.weekdays[i])</option>
                     }
                 </select>
                 <p>*If you select a date you already recorded the date will be updated.</p>
