@@ -82,8 +82,8 @@
                 <div class="week-details">
                     <p>Calories Eaten: <span class="week-calories">@list[dow]["calories"] <i class="fa-solid fa-utensils"></i></span></p>
                     <p>Minutes Exercised: <span class="week-minutes">@list[dow]["minutes"] min <i class="fa-solid fa-bolt-lightning"></i></span></p>
-                    <p>Expected Burned: <span>@list[dow]["expected"]</span></p>
-                    <p>Actual Burned: <span class="week-burned">@list[dow]["burned"] <i class="fa-sharp fa-solid fa-fire-flame-curved"></i></span></p>
+                    <p>Expected Burned: <span class="week-burned">@list[dow]["expected"]</span> calories</p>
+                    <p>Actual Burned: <span class="week-burned">@((int)list[dow]["burned"] > 0 ? "+" + list[dow]["burned"] : list[dow]["burned"]) <i class="fa-sharp fa-solid fa-fire-flame-curved" style=@((int)list[dow]["burned"] < 0 ? "": "display:none")></i></span></p>
                 </div>
                 <div class="goals">
                     <h6>Goals:</h6>
@@ -105,7 +105,7 @@
                     <p>Age: @ViewBag.user.Age</p>
                     <p>Height: @(ViewBag.user.Height / 12)' @(ViewBag.user.Height % 12)"</p>
                     <p>Weight: @ViewBag.user.Weight</p>
-                    <p>Goal: @ViewBag.stats.Goal</p>
+                    <p>Goal: @(ViewBag.stats.Goal * .5) lbs per week</p>
                     <p>Minutes Exercised: @ViewBag.stats.TotalMinutes</p>
                     <p>Total Calories Burned: @ViewBag.stats.TotalBurned</p>
                 </div>
@@ -131,8 +131,8 @@
                             <p><b>@weekDay[i]</b></p>
                             <p>Calories: @calories</p>
                             <p>Minutes: @minutes</p>
-                            <p>Expected: @expected</p>
-                            <p>Burned: @burned</p>
+                            <p>Deficit Goal: <span style="color: #bfa51f">@expected</span></p>
+                            <p>Deficit: <span class=@((int)burned > 0 ? "positive" : "negative")>@((int)burned > 0 ? "+"+burned : burned)</span></p>
                         </div>
                     </div>
                 }

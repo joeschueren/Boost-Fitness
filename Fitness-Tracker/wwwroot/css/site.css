@@ -224,3 +224,11 @@
     padding-bottom: 0px;
     font-size: 14px;
 }
+
+.positive{
+    color: red;
+}
+
+.negative{
+    color: green;
+}
