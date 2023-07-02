@@ -162,15 +162,21 @@
     }
 
     .week-box{
-        width: 65%;
+        width: 80%;
         margin: auto;
         margin-bottom: 2vh;
     }
 
     .today-box{
-        width: 70%;
+        padding: 20px;
+        width: 80%;
         margin: auto;
-        margin-bottom: 2vh;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+    }
+
+    .week-day{
+        font-size: 18px;
     }
 }
 
@@ -193,6 +199,17 @@
     padding: 20px;
     padding-right: 50px;
     margin: 15px 10px;
+}
+
+@media(max-width: 727px){
+    .profile-box{
+        display: none;
+    }
+}
+
+.profile-heading {
+    margin: 25px 0px;
+    color: black;
 }
 
 .profile-container{
@@ -223,6 +240,21 @@
     padding: 10px;
     padding-bottom: 0px;
     font-size: 14px;
+}
+
+.edit-button {
+    border-radius: 4px;
+    display: inline-block;
+    background-color: #1fb013;
+    color: white;
+    padding: 3px 10px;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.edit-button:hover{
+    color: #1fb013;
+    background-color: white;
 }
 
 .positive{

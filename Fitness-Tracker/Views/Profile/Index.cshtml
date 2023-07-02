@@ -74,7 +74,9 @@
     var list = ViewBag.daysData as Dictionary<string, object>[];
 
     var dow = (int)ViewBag.dayOfWeek;
-
+    <div class="row">
+        <h1 class="profile-heading">Week Overview</h1>
+    </div>
     <div class="row">
         <div class="col-md-6">
             <div class="today-box ms-auto">
@@ -94,6 +96,7 @@
                     </ul>
                     <p>@(ViewBag.hoursLeft == 1 ? ViewBag.hoursLeft + " Hour Left Today" : ViewBag.hoursLeft + " Hours Left Today")</p>
                 </div>
+                <a href="/day/add" class="edit-button">Edit</a>
             </div>
 
         </div>
@@ -128,11 +131,12 @@
                     var burned = day["burned"];
                     <div class="col-md-2">
                         <div class="week-box">
-                            <p><b>@weekDay[i]</b></p>
-                            <p>Calories: @calories</p>
-                            <p>Minutes: @minutes</p>
-                            <p>Deficit Goal: <span style="color: #bfa51f">@expected</span></p>
+                            <p><span class="week-day"><b>@weekDay[i]</b></span></p>
+                            <p>Calories: <span class="week-calories">@calories <i class="fa-solid fa-utensils"></i></span></p>
+                            <p>Exercise: <span class="week-minutes">@minutes min <i class="fa-solid fa-bolt-lightning"></i></span></p>
+                            <p>Deficit Goal: <span style="color: #fc7b03">@expected </span></p>
                             <p>Deficit: <span class=@((int)burned > 0 ? "positive" : "negative")>@((int)burned > 0 ? "+"+burned : burned)</span></p>
+                            <a href="/day/add" class="edit-button">Edit</a>
                         </div>
                     </div>
                 }
