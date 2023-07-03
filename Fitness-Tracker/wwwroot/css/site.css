@@ -1,8 +1,9 @@
 :root {
     --primary-color: #02d158;
+    --secondary-color: #45b04d;
 }
 
-body{
+body {
     font-family: "Roboto", "sans-serif";
 }
 
@@ -20,7 +21,7 @@ body{
 }
 
 .nav-div {
-    background-color: #45b04d;
+    background-color: var(--secondary-color);
     margin: 0px;
     padding: 10px 10px;
 }
@@ -102,6 +103,40 @@ body{
     opacity: 50%;
     color: white;
 
+}
+
+.card-row{
+    margin: 50px 0px;
+}
+
+.home-card{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.home-card-icon{
+    color: var(--primary-color);
+}
+
+.home-card-icon:hover{
+    opacity: 60%;
+}
+
+.home-card-head {
+    margin-bottom: 15px;
+}
+
+.home-card-foot {
+    color: #9c9c9c;
+}
+
+.generate-section{
+    color: white;
+    background-color: var(--secondary-color);
+    padding: 50px 25px;
+    text-align: center;
 }
 
 /* results page styling */
@@ -274,6 +309,10 @@ body{
     .week-day {
         font-size: 24px;
     }
+}
+
+.na {
+    color: #9c9c9c;
 }
 
 
