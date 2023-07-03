@@ -186,7 +186,7 @@ namespace Fitness_Tracker.Controllers
                 {
                     dayData["calories"] = updatedIntake;
                     dayData["minutes"] = updatedMinutes;
-                    dayData["burned"] = updatedExpected;
+                    dayData["burned"] = "n/a";
                     dayData["expected"] = updatedExpected;
                     dayData["style"] = "future-box";
                 }

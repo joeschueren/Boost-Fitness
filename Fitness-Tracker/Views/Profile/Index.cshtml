@@ -80,7 +80,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="today-box ms-auto">
-                <h4 class="weekday">Today</h4>
+                <h2 class="week-day">Today</h2>
                 <div class="week-details">
                     <p>Calories Eaten: <span class="week-calories">@list[dow]["calories"] <i class="fa-solid fa-utensils"></i></span></p>
                     <p>Minutes Exercised: <span class="week-minutes">@list[dow]["minutes"] min <i class="fa-solid fa-bolt-lightning"></i></span></p>
@@ -129,13 +129,14 @@
                     var minutes = day["minutes"];
                     var expected = day["expected"];
                     var burned = day["burned"];
+                    var style = day["style"];
                     <div class="col-md-2">
-                        <div class="week-box">
-                            <p><span class="week-day"><b>@weekDay[i]</b></span></p>
+                        <div class=@style>
+                            <h6><span class="week-day">@weekDay[i]</span></h6>
                             <p>Calories: <span class="week-calories">@calories <i class="fa-solid fa-utensils"></i></span></p>
                             <p>Exercise: <span class="week-minutes">@minutes min <i class="fa-solid fa-bolt-lightning"></i></span></p>
                             <p>Deficit Goal: <span style="color: #fc7b03">@expected </span></p>
-                            <p>Deficit: <span class=@((int)burned > 0 ? "positive" : "negative")>@((int)burned > 0 ? "+"+burned : burned)</span></p>
+                            <p>Deficit: <span class=@(burned.ToString() == "n/a" ? "": ((int)burned > 0 ? "positive" : "negative"))>@((burned.ToString() == "n/a" ? burned : ((int)burned > 0 ? "+"+burned : burned)))</span></p>
                             <a href="/day/add" class="edit-button">Edit</a>
                         </div>
                     </div>

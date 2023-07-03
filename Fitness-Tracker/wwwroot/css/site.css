@@ -2,8 +2,8 @@
     --primary-color: #02d158;
 }
 
-.body{
-    font-family: "Barlow";
+body{
+    font-family: "Roboto", "sans-serif";
 }
 
 .row {
@@ -151,8 +151,9 @@
     color: #d10202;
 }
 
-.weekday {
-    color: black;
+.week-day{
+    padding-top: 15px;
+    padding-bottom: 25px;
 }
 
 @media (max-width: 767px){
@@ -222,9 +223,9 @@
     padding-bottom: 15px;
 }
 
-.past-box {
+.past-box, .future-box {
     width: 95%;
-    border: 2px solid #e6159c;
+    border: 2px solid;
     border-radius: 5px;
     margin-left: 8px;
     padding: 10px;
@@ -232,14 +233,12 @@
     font-size: 14px;
 }
 
-.future-box {
-    width: 95%;
-    border: 2px solid #e6159c;
-    border-radius: 5px;
-    margin-left: 8px;
-    padding: 10px;
-    padding-bottom: 0px;
-    font-size: 14px;
+.future-box{
+    border-color: var(--primary-color);
+}
+
+.past-box {
+    border-color: #15910a;
 }
 
 .edit-button {
@@ -264,3 +263,5 @@
 .negative{
     color: green;
 }
+
+
