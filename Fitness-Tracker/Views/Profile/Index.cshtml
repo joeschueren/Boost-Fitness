@@ -103,8 +103,8 @@
         <div class="col-md-6">
             <div class="profile-container">
                 <div class="profile-box">
-                    <h4 class="profile-header">Profile</h4>
                     <p><b>@ViewBag.user.User</b></p>
+                    <p>@(char.ToUpper(ViewBag.user.Gender[0]) + ViewBag.user.Gender.Substring(1))</p>
                     <p>Age: @ViewBag.user.Age</p>
                     <p>Height: @(ViewBag.user.Height / 12)' @(ViewBag.user.Height % 12)"</p>
                     <p>Weight: @ViewBag.user.Weight</p>
@@ -137,7 +137,7 @@
                             <p>Exercise: <span class="week-minutes">@minutes min <i class="fa-solid fa-bolt-lightning"></i></span></p>
                             <p>Deficit Goal: <span style="color: #fc7b03">@expected cal</span></p>
                             <p>Deficit: <span class=@(burned.ToString() == "n/a" ? "": ((int)burned > 0 ? "positive" : "negative"))>@((burned.ToString() == "n/a" ? burned : ((int)burned > 0 ? "+"+burned : burned)))</span></p>
-                            <a href="/day/add" style=@(style.ToString() == "future-box" ? "display:none" : "") class="edit-button">Edit</a>
+                            <a href="/day/add" class="edit-button" style=@(style.ToString() == "future-box" ? "display:none" : "")>Edit</a>
                         </div>
                     </div>
                 }
