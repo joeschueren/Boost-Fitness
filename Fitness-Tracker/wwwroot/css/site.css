@@ -11,6 +11,10 @@ body{
     padding: 0px;
 }
 
+.nav-link, .navbar-brand{
+    color: white !important;
+}
+
 .container-fluid{
     padding: 0px;
 }
@@ -23,7 +27,6 @@ body{
 
 .navbar-brand{
     font-size: 20px;
-    font-family: "Ubuntu";
     font-weight: 700;
 
 }
@@ -151,34 +154,9 @@ body{
     color: #d10202;
 }
 
-.week-day{
-    padding-top: 15px;
+.week-day {
+    padding-top: 5px;
     padding-bottom: 25px;
-}
-
-@media (max-width: 767px){
-    
-    .results-heading{
-        text-align: center;
-    }
-
-    .week-box{
-        width: 80%;
-        margin: auto;
-        margin-bottom: 2vh;
-    }
-
-    .today-box{
-        padding: 20px;
-        width: 80%;
-        margin: auto;
-        margin-top: 5vh;
-        margin-bottom: 5vh;
-    }
-
-    .week-day{
-        font-size: 18px;
-    }
 }
 
 /* Generate Page Styling */
@@ -202,14 +180,22 @@ body{
     margin: 15px 10px;
 }
 
-@media(max-width: 727px){
+@media(max-width: 768px){
     .profile-box{
         display: none;
     }
+
+    .profile-heading{
+        text-align: center;
+    }
+}
+
+.col-md-6{
+    margin-bottom: 25px;
 }
 
 .profile-heading {
-    margin: 25px 0px;
+    margin-top: 40px;
     color: black;
 }
 
@@ -227,7 +213,7 @@ body{
     width: 95%;
     border: 2px solid;
     border-radius: 5px;
-    margin-left: 8px;
+    margin-right: 8px;
     padding: 10px;
     padding-bottom: 0px;
     font-size: 14px;
@@ -262,6 +248,32 @@ body{
 
 .negative{
     color: green;
+}
+
+@media (max-width: 767px) {
+
+    .results-heading {
+        text-align: center;
+    }
+
+    .week-box, .past-box, .future-box {
+        width: 80%;
+        margin: auto;
+        margin-bottom: 2vh;
+        padding-left: 15px;
+    }
+
+    .today-box {
+        padding: 20px;
+        width: 80%;
+        margin: auto;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+    }
+
+    .week-day {
+        font-size: 24px;
+    }
 }
 
 

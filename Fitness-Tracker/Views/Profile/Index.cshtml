@@ -130,14 +130,14 @@
                     var expected = day["expected"];
                     var burned = day["burned"];
                     var style = day["style"];
-                    <div class="col-md-2">
+                    <div class="col-lg-2 col-md-6">
                         <div class=@style>
                             <h6><span class="week-day">@weekDay[i]</span></h6>
                             <p>Calories: <span class="week-calories">@calories <i class="fa-solid fa-utensils"></i></span></p>
                             <p>Exercise: <span class="week-minutes">@minutes min <i class="fa-solid fa-bolt-lightning"></i></span></p>
-                            <p>Deficit Goal: <span style="color: #fc7b03">@expected </span></p>
+                            <p>Deficit Goal: <span style="color: #fc7b03">@expected cal</span></p>
                             <p>Deficit: <span class=@(burned.ToString() == "n/a" ? "": ((int)burned > 0 ? "positive" : "negative"))>@((burned.ToString() == "n/a" ? burned : ((int)burned > 0 ? "+"+burned : burned)))</span></p>
-                            <a href="/day/add" class="edit-button">Edit</a>
+                            <a href="/day/add" style=@(style.ToString() == "future-box" ? "display:none" : "") class="edit-button">Edit</a>
                         </div>
                     </div>
                 }
