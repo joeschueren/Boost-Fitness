@@ -37,6 +37,10 @@ body {
     margin: 0px;
 }
 
+.nav-item{
+    padding: 0px 10px;
+}
+
 /* Home Page Styling */
 
 .heading {
@@ -96,6 +100,18 @@ body {
     .heading-button{
         font-size: 14px;
     }
+}
+
+.home-heading {
+    background: linear-gradient(0deg, rgba(64,106,194,0.6) 0%, rgba(25,194,50,0.6) 100%);
+    color: white;
+    width: 80%;
+    margin-top: 50px;
+    padding: 25px;
+}
+
+.btn-light{
+    margin-left: 15px;
 }
 
 

@@ -110,7 +110,7 @@
                     <p>Weight: @ViewBag.user.Weight</p>
                     <p>Goal: @(ViewBag.stats.Goal * .5) lbs per week</p>
                     <p>Minutes Exercised: @ViewBag.stats.TotalMinutes</p>
-                    <p>Total Calories Burned: @ViewBag.stats.TotalBurned</p>
+                    <p>Total Calories Burned: @(Math.Abs(ViewBag.stats.TotalBurned))</p>
                 </div>
             </div>
         </div>

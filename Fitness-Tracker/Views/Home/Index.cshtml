@@ -3,34 +3,30 @@
 }
 
 <div>
-    @if (!User.Identity.IsAuthenticated)
+    @if (User.Identity.IsAuthenticated)
     {
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-12 heading">
-                    <div class="heading-text">
-                        <h1 class="heading-main">Let Us Help You Become a Better Version of Yourself</h1>
-                        <p class="heading-sub">
-                            Fitness Tracker will create a plan for the week allowing you to see the path to reaching your goals. Keep track of your progress
-                            day to day, and your plan will adjust to meet your needs.
-                        </p>
-                        <div class="heading-button-container">
-                            <a class="heading-button">Start Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-md-6 col-sm-12">
-                    <h4 class="mb-3">Continue your health journey here</h4>
-                    <a class="btn btn-primary">Log In</a>
-                </div>
-                <div class="col-12 col-md-6 col-sm-12">
-                    <h4 class="mb-3">Begin your fitness journey now</h4>
-                    <a class="btn btn-outline-primary">Register</a>
-                </div>
+        <div class="container-fluid home-heading">
+            <h1 class="mb-4">Continue your journey to being a better you, your future is bright with Fitness Tracker</h1>
+            <p>
+                Track your calories and exercise each day, keeping up with the goals you want to achieve by following our plan.
+                Enter your calories eaten and minutes exercised each day and your plan updates for you.
+            </p>
+            <div class="home-buttons">
+                <a class="btn btn-dark" href="/profile">Profile</a>
+                <a class="btn btn-light" href="/day/add">Track a Day</a>
             </div>
         </div>
+    }
+    else{
+    <div class="container-fluid home-heading">
+        <h1 class="mb-4">Start your journey to being a better you, make a change with Fitness Tracker</h1>
+        <p>Track your calories and exercise each day, keeping up with the goals you want to achieve by following our plan.
+            All you have to do is sign up and create a plan tailored to you all for free.</p>
+        <div class="home-buttons">
+            <a class="btn btn-dark">sign in</a>
+            <a class="btn btn-light">sign up</a>
+        </div>
+    </div>
     }
     <div class="container-fluid">
         <div class="row card-row">
@@ -69,6 +65,10 @@
             <h2>Get a personalized fitness plan for the week</h2>
             <p>We tailor a plan to you to allow you to reach your goals in the simplest way possible.</p>
             <a class="btn btn-primary" href="/generate">Make a Plan</a>
+        </div>
+        <div class="container-fluid features-section">
+            <h2>Features</h2>
+            <p></p>
         </div>
     </div>
 </div>

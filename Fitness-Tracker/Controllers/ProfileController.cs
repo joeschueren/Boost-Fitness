@@ -55,7 +55,7 @@ namespace Fitness_Tracker.Controllers
 
             for(int i =0; i < 7; i++)
             {
-                datesList.Append(sunday.AddDays(i).ToString("MM/dd/yyyy"));
+                datesList[i] = sunday.AddDays(i).ToString("MM/dd/yyyy");
             }
            
 
@@ -121,13 +121,13 @@ namespace Fitness_Tracker.Controllers
 
             int totalBurned = 0;
             int accumulativeBurned = 0;
-            foreach(var day in days)
+            foreach(var current in days)
             {
-                if(datesList.Any(d => d == day.Date))
+                if(datesList.Any(d => d == current.Date.ToString()))
                 {
-                    totalBurned += Math.Abs(day.CaloriesIn - (int)tcb);
+                    totalBurned += current.CaloriesIn - (int)tcb;
                 }
-                accumulativeBurned += Math.Abs(day.CaloriesIn - (int)tcb);
+                accumulativeBurned += current.CaloriesIn - (int)tcb;
             }
 
             stats.TotalBurned = accumulativeBurned;
@@ -161,7 +161,7 @@ namespace Fitness_Tracker.Controllers
                 {
                     updatedMinutes = (210 - totalMinutes) / (7 - (int)today.DayOfWeek + 1);
                 }
-                int updatedExpected = (7000 - totalBurned) / (7 - (int)today.DayOfWeek);
+                int updatedExpected = (7000 + totalBurned) / (7 - (int)today.DayOfWeek);
                 int updatedIntake = (int)tcb - updatedExpected;
 
 
