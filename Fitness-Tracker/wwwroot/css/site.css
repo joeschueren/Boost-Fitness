@@ -1,6 +1,6 @@
 :root {
     --primary-color: #02d158;
-    --secondary-color: #45b04d;
+    --secondary-color: #55c95a
 }
 
 body {
@@ -29,7 +29,6 @@ body {
 .navbar-brand{
     font-size: 20px;
     font-weight: 700;
-
 }
 
 .navbar{
@@ -43,75 +42,37 @@ body {
 
 /* Home Page Styling */
 
-.heading {
-    margin: 0px;
-    width: 100%;
-    background: rgb(64,106,194);
-    background: linear-gradient(0deg, rgba(64,106,194,0.6) 0%, rgba(25,194,50,0.6) 100%);
-}
-
-.heading-text{
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-}
-
-.heading-main{
-    margin: auto;
-    width: 65vw;
-    font-size: 4.5vw;
-    text-align: center;
-    color: white;
-}
-
-.heading-sub {
-    margin: 5vh auto;
-    width: 55vw;
-    text-align: center;
-    color: white;
-}
-
-.heading-button-container {
-    margin: 2vw 0px;
-    text-align: center;
-}
-
-.heading-button {
-    font-size: 1.2vw;
-    border-radius: 15px;
-    background-color: #030ffc;
-    text-decoration: none;
-    color: white;
-    border: 0px;
-    padding: 9px 15px;
-    text-align: center;
-    cursor: pointer;
-}
-
-@media (max-width: 800px){
-    .heading-sub{
-        display: none;
-    }
-
-    .heading-main{
-        width: 85vw;
-        margin-bottom: 5vh;
-    }
-
-    .heading-button{
-        font-size: 14px;
-    }
-}
-
 .home-heading {
     background: linear-gradient(0deg, rgba(64,106,194,0.6) 0%, rgba(25,194,50,0.6) 100%);
     color: white;
     width: 80%;
     margin-top: 50px;
-    padding: 25px;
+    padding: 4%;
+}
+
+.heading-text{
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.buttons-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-chevron-right{
+    margin-left: 5px;
 }
 
 .btn-light{
     margin-left: 15px;
+}
+
+.btn:hover{
+    opacity: 60%;
 }
 
 
@@ -122,7 +83,14 @@ body {
 }
 
 .card-row{
-    margin: 50px 0px;
+    margin: 15vh auto;
+    width: 80%;
+
+}
+
+.cards-header{
+    margin: 75px;
+    text-align: center;
 }
 
 .home-card{
@@ -132,8 +100,8 @@ body {
     margin-bottom: 40px;
 }
 
-.home-card-icon{
-    color: var(--primary-color);
+.home-card-icon {
+    color: #0569b5;
 }
 
 .home-card-icon:hover{
@@ -145,14 +113,23 @@ body {
 }
 
 .home-card-foot {
-    color: #9c9c9c;
+    color: black;
 }
 
 .generate-section{
     color: white;
     background-color: var(--secondary-color);
     padding: 50px 25px;
+    width: 80%;
+    margin: auto;
     text-align: center;
+}
+
+
+@media(max-width: 767px){
+    .card-row, .generate-section, .home-heading{
+        width: 100%;
+    }
 }
 
 /* results page styling */
@@ -161,9 +138,9 @@ body {
     font-size: 18px;
     margin: 20px;
     border: 2px solid;
-    border-color: #02d158;
+    border-image: linear-gradient(0deg, rgba(64,106,194,0.6) 0%, rgba(25,194,50,0.6) 100%);
+    border-image-slice: 1;
     padding: 25px;
-    border-radius: 5px;
 }
 
 .results-heading{
@@ -175,11 +152,11 @@ body {
     font-size: 14px;
 }
 
-.week-box{
+.week-box {
     width: 95%;
-    border: 2px solid var(--primary-color);
-    border-radius: 5px;
-    margin-left: 8px;
+    border: 2px solid;
+    border-image: linear-gradient(0deg, rgba(64,106,194,0.6) 0%, rgba(25,194,50,0.6) 100%);
+    border-image-slice: 1;
     padding: 10px;
     padding-bottom: 0px;
     font-size: 14px;
@@ -223,10 +200,11 @@ body {
 
 /* Profile Page Styling */
 
-.profile-box{
+.profile-box {
     border: 2px solid var(--primary-color);
-    border-radius: 5px;
+    border-image: linear-gradient(0deg, rgba(64,106,194,0.6) 0%, rgba(25,194,50,0.6) 100%);
     padding: 20px;
+    border-image-slice: 1;
     padding-right: 50px;
     margin: 15px 10px;
 }
@@ -263,19 +241,20 @@ body {
 .past-box, .future-box {
     width: 95%;
     border: 2px solid;
-    border-radius: 5px;
-    margin-right: 8px;
+    border-image-slice: 1;
     padding: 10px;
     padding-bottom: 0px;
     font-size: 14px;
 }
 
-.future-box{
-    border-color: var(--primary-color);
+.past-box {
+    border-image: linear-gradient(0deg, rgba(191,194,64,1) 0%, rgba(31,194,25,1) 100%);
+    border-image-slice: 1;
 }
 
-.past-box {
-    border-color: #15910a;
+.future-box {
+    border-image: linear-gradient(0deg, rgba(18,177,156,1) 0%, rgba(31,194,25,1) 100%);
+    border-image-slice: 1;
 }
 
 .edit-button {

@@ -6,57 +6,84 @@
     @if (User.Identity.IsAuthenticated)
     {
         <div class="container-fluid home-heading">
-            <h1 class="mb-4">Continue your journey to being a better you, your future is bright with Fitness Tracker</h1>
-            <p>
-                Track your calories and exercise each day, keeping up with the goals you want to achieve by following our plan.
-                Enter your calories eaten and minutes exercised each day and your plan updates for you.
-            </p>
-            <div class="home-buttons">
-                <a class="btn btn-dark" href="/profile">Profile</a>
-                <a class="btn btn-light" href="/day/add">Track a Day</a>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="heading-text">
+                        <h3 class="mb-4">Continue your journey to being a better you, your future is bright with Fitness Tracker</h3>
+                        <p>
+                            Track your calories and exercise each day, keeping up with the goals you want to achieve by following our plan.
+                            Enter your calories eaten and minutes exercised each day and your plan updates for you.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="buttons-container">
+                        <div class="home-buttons">
+                            <a class="btn btn-dark" href="/profile">Profile <i class="fa-solid fa-chevron-right"></i></a>
+                            <a class="btn btn-light" href="/day/add">Track a Day <i class="fa-solid fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     }
     else{
     <div class="container-fluid home-heading">
-        <h1 class="mb-4">Start your journey to being a better you, make a change with Fitness Tracker</h1>
-        <p>Track your calories and exercise each day, keeping up with the goals you want to achieve by following our plan.
-            All you have to do is sign up and create a plan tailored to you all for free.</p>
-        <div class="home-buttons">
-            <a class="btn btn-dark">sign in</a>
-            <a class="btn btn-light">sign up</a>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="heading-text">
+                    <h3 class="mb-4">Start your journey to being a better you, make a change with Fitness Tracker</h3>
+                    <p>Track your calories and exercise each day, keeping up with the goals you want to achieve by following our plan.
+                        All you have to do is sign up and create a plan tailored to you all for free.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="buttons-container">
+                    <div class="home-buttons">
+                            <a class="btn btn-dark">Sign In<i class="fa-solid fa-chevron-right"></i></a>
+                            <a class="btn btn-light">Sign Up<i class="fa-solid fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     }
     <div class="container-fluid">
+        <div class="cards-header">
+            <h3>Getting started is easy</h3>
+            <p>Ready to go in 3 steps</p>
+        </div>
         <div class="row card-row">
                 <div class="col-12 col-md-4">
                     <div class="home-card">
                         <div class="home-card-head">
-                            <i class="fa-solid fa-bullseye fa-8x home-card-icon"></i>
+                            <i class="fa-solid fa-1 fa-2x home-card-icon"></i>
                         </div>
                         <div class="home-card-foot">
-                            <h5 class="card-text">We develop a plan to help you reach your goals</h5>
+                            <h6 class="card-text">Sign Up</h6>
+                            <p>Sign Up for free to create an account and start tracking your growth</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="home-card">
                         <div class="home-card-head">
-                        <i style="color: #fadd00;" class="fa-solid fa-bolt-lightning fa-8x home-card-icon"></i>
+                            <i class="fa-solid fa-2 fa-2x home-card-icon"></i>
                         </div>
                         <div class="home-card-foot">
-                            <h5 class="card-text">We track your exercise to accurately calculate calorie burn</h5>
+                            <h6 class="card-text">Create a Plan</h6>
+                            <p>Enter your current weight and age, and a plan will be made tailored to you</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="home-card">
                         <div class="home-card-head">
-                        <i style="color: #f73b3b;" class="fa-solid fa-heart fa-8x home-card-icon"></i>
+                        <i class="fa-solid fa-3 fa-2x home-card-icon"></i>
                         </div>
                         <div class="home-card-foot">
-                            <h5 class="card-text">Our plan will set you on the path to becoming a healthier person</h5>
+                            <h6 class="card-text">Track Your Progress</h6>
+                            <p>Enter your calories eaten and minutes exercised, and reach your goals</p>
                         </div>
                     </div>
                 </div>
