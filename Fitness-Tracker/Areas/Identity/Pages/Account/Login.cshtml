@@ -8,10 +8,11 @@
 
 
 <div class="row account-page">
-    <div style="background-color: white; color: black;" class="col-md-6 info-box">
+    <h1 class="mb-3">@ViewData["Title"]</h1>
+    <div class="col-md-6 info-box">
         <section>
-            <h1 style="margin: 25px 0px;">@ViewData["Title"]</h1>
             <form id="account" method="post">
+                <h2>Sign into your account</h2>
                 <hr />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div style="color:black;"class="form-floating mb-3">

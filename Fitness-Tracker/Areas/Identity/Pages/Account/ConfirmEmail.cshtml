@@ -1,0 +1,17 @@
+﻿@page
+@model ConfirmEmailModel
+
+
+@{
+    string destinationUrl = Url.Action("Index", "/");
+    Response.Redirect(destinationUrl);
+    ViewData["Title"] = "Account Registration Complete";
+}
+
+
+
+<h1 style="text-align: center; margin-bottom: 50px;">@ViewData["Title"]</h1>
+<div style="text-align: center">
+    <a style="margin-right: 25px;" href="/Identity/Account/Login">Sign In</a>
+    <a style="margin-left: 25px;" href="/">Return to Home</a>
+</div>
