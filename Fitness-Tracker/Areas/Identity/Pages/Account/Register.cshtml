@@ -9,8 +9,9 @@
 
 <div class="row account-page">
     <h1 class="mb-3">@ViewData["Title"]</h1>
-    <div class="col-md-6 info-box">
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+    <div class="col-md-6">
+        <div class="info-box">
+        <form class="mb-3" id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h2>Create a new account.</h2>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -29,8 +30,11 @@
                 <label asp-for="Input.ConfirmPassword"></label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary mb-3">Register</button>
+            <a href="/Identity/Account/Login">Log In</a>
         </form>
+        </div>
+        
     </div>
     <div class="col-md-6 col-md-offset-2">
         <section>
@@ -41,7 +45,7 @@
                 {
                     <div>
                         <p>
-                            Signing in allows you to track your progress throughout the week and have your plan update accordingly.
+                            Signing up allows you to track your progress throughout the week and have your plan update accordingly.
                         </p>
                     </div>
                 }
