@@ -7,13 +7,13 @@
 
 <div class="fluid-container">
     <div class="row">
-        <div style="margin: auto; width: 95%" class="col-lg-6">
+        <div style="margin: auto;" class="col-md-3">
             <h1>Record your day</h1>
             <form action="insert" method="post">
                 <label class="form-label" for="eaten">Calories Eaten:</label>
-                <input class="form-control w-50 mb-3" name="calories" id="calories" placeholder="Calories" required />
+                <input class="form-control mb-3" name="calories" id="calories" placeholder="Calories" required />
                 <label class="form-label" for="min">Minutes Exercised:</label>
-                <input class="form-control w-50 mb-3" name="minutes" id="minutes" placeholder="Minutes" required />
+                <input class="form-control mb-3" name="minutes" id="minutes" placeholder="Minutes" required />
                 <label class="form-label" for="activity">Date</label>
                 <select class="form-select mb-3" id="activity" name="date" aria-label="Select Goal">
                     @for(int i =0; i < 7; i++)

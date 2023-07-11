@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Fitness_Tracker</title>
+    <link rel="icon" type="image/png" href="~/favicon-32x32.png" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Fitness_Tracker.styles.css" asp-append-version="true" />
@@ -13,7 +14,7 @@
 </head>
 <body>
     <header>
-        <nav style=@(Context.Request.Path.StartsWithSegments("/profile") ? "width:95%" : "width:85%") class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow">
+        <nav style="@(Context.Request.Path.StartsWithSegments("/profile") ? "width: 95%" : "")" class="navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow navbar">
             <div class="container-fluid nav-div">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Level Up <i style="padding-left: 5px;" class="fa-solid fa-shoe-prints logo"></i></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -39,12 +40,6 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - Fitness_Tracker - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

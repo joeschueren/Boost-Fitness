@@ -104,13 +104,13 @@
             <div class="profile-container">
                 <div class="profile-box">
                     <p><b>@ViewBag.user.User</b></p>
-                    <p>@(char.ToUpper(ViewBag.user.Gender[0]) + ViewBag.user.Gender.Substring(1))</p>
-                    <p>Age: @ViewBag.user.Age</p>
-                    <p>Height: @(ViewBag.user.Height / 12)' @(ViewBag.user.Height % 12)"</p>
-                    <p>Weight: @ViewBag.user.Weight</p>
-                    <p>Goal: @(ViewBag.stats.Goal * .5) lbs per week</p>
-                    <p>Minutes Exercised: @ViewBag.stats.TotalMinutes</p>
-                    <p>Total Calories Burned: @(Math.Abs(ViewBag.stats.TotalBurned))</p>
+                    <p><strong>@(char.ToUpper(ViewBag.user.Gender[0]) + ViewBag.user.Gender.Substring(1))</strong></p>
+                    <p>Age: <strong>@ViewBag.user.Age</strong></p>
+                    <p>Height: <strong>@(ViewBag.user.Height / 12)' @(ViewBag.user.Height % 12)"</strong></p>
+                    <p>Weight: <strong>@ViewBag.user.Weight lbs</strong></p>
+                    <p>Goal: <strong>@(ViewBag.stats.Goal * .5) lbs per week</strong></p>
+                    <p>Minutes Exercised: <strong>@ViewBag.stats.TotalMinutes</strong></p>
+                    <p>Total Calories Burned: <strong>@(Math.Abs(ViewBag.stats.TotalBurned))</strong></p>
                     <a href="/profile/update" class="edit-button">Update</a>
                 </div>
             </div>
