@@ -62,10 +62,13 @@ body {
 
 /* Home Page Styling */
 
+.header-container {
+    width: var(--width);
+}
+
 .home-heading {
     background: linear-gradient(0deg, rgba(64,106,194) 0%, rgba(25,194,50) 100%);
     color: white;
-    width: var(--width);
     padding: 4%;
     margin-bottom: 8vw;
 }
@@ -81,6 +84,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.landing-image {
+    background-image: url(https://c0.wallpaperflare.com/preview/704/283/674/casual-close-up-colors-contemporary.jpg);
+    width: 100%;
+    height: 100%;
+    opacity: 75%;
+    padding: 0px;
+    margin: 0px;
+    background-size: cover;
+    background-position: center;
 }
 
 .fa-chevron-right{
@@ -185,7 +199,7 @@ body {
 
 
 @media(max-width: 767px){
-    .card-row, .generate-section, .home-heading, .generate-body, .how-section, .call-to-action{
+    .card-row, .generate-section, .header-container, .generate-body, .how-section, .call-to-action{
         width: 100%;
     }
 

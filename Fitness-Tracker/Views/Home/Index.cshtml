@@ -5,38 +5,38 @@
 <div>
     @if (User.Identity.IsAuthenticated)
     {
-        <div class="container-fluid home-heading">
+        <div class="container-fluid header-container">
             <div class="row">
-                <div style="margin-bottom: 0px;" class="col-md-6">
+                <div style="margin-bottom: 0px;" class="col-md-6 home-heading">
                     <div class="heading-text">
-                        <h3 class="mb-4">Continue your journey to being a better you, your future is bright with Fitness Tracker</h3>
+                        <h3 class="mb-4">Continue your journey to being a better you, your future is bright with Boost Fitness</h3>
                         <p>
                             Track your calories and exercise each day, keeping up with the goals you want to achieve by following our plan.
-                            Enter your calories eaten and minutes exercised each day and your plan updates for you.
+                            Enter your calories eaten and minutes exercised each day and your plan updates for you, just the boost you need to reach your goals.
                         </p>
-                    </div>
-                </div>
-                <div style="margin-bottom: 0px;" class="col-md-6">
-                    <div class="buttons-container">
+                        <div class="buttons-container">
                         <div class="home-buttons">
                             <a class="btn btn-dark" href="/profile">Profile <i class="fa-solid fa-chevron-right"></i></a>
                             <a class="btn btn-light" href="/day/add">Track a Day <i class="fa-solid fa-chevron-right"></i></a>
                         </div>
+                        </div>
                     </div>
+                    </div>
+                <div style="padding: 0px; margin: 0px;"class="col-md-6">
+                    <div class="landing-image"></div>
                 </div>
             </div>
         </div>
     }
     else{
-    <div class="container-fluid home-heading">
+    <div class="container-fluid header-container">
         <div class="row">
-            <div style="margin-bottom: 0px;" class="col-md-6">
+            <div style="margin-bottom: 0px;" class="col-md-6 home-heading">
                 <div class="heading-text">
-                    <h3 class="mb-4">Start your journey to being a better you, make a change with Fitness Tracker</h3>
+                    <h3 class="mb-4">Start your journey to being a better you, make a change with Boost Fitness</h3>
                     <p>Track your calories and exercise each day, keeping up with the goals you want to achieve by following our plan.
                         All you have to do is sign up and create a plan tailored to you all for free.</p>
                 </div>
-            </div>
             <div style="margin-bottom: 0px;" class="col-md-6">
                 <div class="buttons-container">
                     <div class="home-buttons">
@@ -45,6 +45,10 @@
                     </div>
                 </div>
             </div>
+            </div>
+            <div style="padding: 0px; margin: 0px;"class="col-md-6">
+                    <div class="landing-image"></div>
+               </div>
         </div>
     </div>
     }
