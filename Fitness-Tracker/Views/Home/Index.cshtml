@@ -117,7 +117,7 @@
         <div class="container-fluid call-to-action">
             <div class="cta-text">
                 <h1 style="margin-bottom:50px">@(!User.Identity.IsAuthenticated ? "Sign Up Now." : "")<br/>Your Future Looks Brighter With Us</h1>
-                <a href=@(!User.Identity.IsAuthenticated ? "/Identity/Account/Register" : "/profile") class="btn btn-light">@(User.Identity.IsAuthenticated ? "Profile": "Sign Up")</a>
+                <a href=@(!User.Identity.IsAuthenticated ? "/Identity/Account/Register" : "/profile") class="btn btn-dark">@(User.Identity.IsAuthenticated ? "Profile": "Sign Up") <i class="fa-solid fa-chevron-right"></i></a>
             </div>
         </div>
     </div>

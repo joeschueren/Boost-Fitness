@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using static Humanizer.In;
 using System.Reflection;
 using System.Diagnostics;
-using Fitness_Tracker.Migrations;
 using System.Data.SqlTypes;
 
 namespace Fitness_Tracker.Controllers
@@ -250,6 +249,21 @@ namespace Fitness_Tracker.Controllers
         [Authorize]
         public IActionResult Update()
         {
+            string username = User.Identity.Name;
+
+            var stats = _context.Stats.FirstOrDefault(x => x.User == username);
+            var user = _context.Users.FirstOrDefault(x => x.User == username);
+
+            
+            ViewBag.totalInches = user.Height;
+            ViewBag.gender = user.Gender;
+            ViewBag.weight = user.Weight;
+            ViewBag.age = user.Age;
+            ViewBag.goal = stats.Goal;
+            ViewBag.Activity = stats.ActivityLevel;
+
+            _context.Dispose();
+
             return View();
         }
 

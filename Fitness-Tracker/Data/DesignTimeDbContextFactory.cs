@@ -14,7 +14,7 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<Alternativ
             .Build();
 
         var optionsBuilder = new DbContextOptionsBuilder<AlternativeDbContext>();
-        optionsBuilder.UseSqlite(configuration.GetConnectionString("daysDb"));
+        optionsBuilder.UseSqlServer(configuration.GetConnectionString("daysDb"));
 
         return new AlternativeDbContext(optionsBuilder.Options);
     }
